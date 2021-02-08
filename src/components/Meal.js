@@ -2,7 +2,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 const Meal = ({ meal }) => {
     return (
-        <div className={`meal shadow`}>
+        <div className={`meal shadow`} onClick={() => {}}>
             <div>
                 <h3>{meal.title}</h3>
                 <p className="description">{meal.description}</p>

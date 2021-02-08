@@ -12,35 +12,47 @@
 }
 .App {
     margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     color: var(--dark);
+    background: var(--bcg);
 }
 p,
 span {
     color: var(--medium);
 }
-.container {
-    padding: 25px 120px;
-    margin-top: 0;
-    background: #f2f5f5;
-}
+
 /* ==============
       HEADER
 ================ */
-
+.header {
+    background: white;
+    width: 100vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
 .topbar {
     height: 60px;
     border-bottom: 1px solid var(--border);
+    width: 100vw;
+    max-width: 100vw;
+}
+.topbar div {
+    width: 1200px;
+    height: 59px;
+    margin: 0 auto;
     display: flex;
     align-items: center;
 }
+
 .logo {
     height: 70%;
-    margin-left: 120px;
 }
 
 .header-title {
     display: flex;
-    margin: 0 120px;
     height: 257px;
 }
 .header-title div:first-child {
@@ -68,6 +80,11 @@ h1 {
 /* ==============
      CATEGORY
 ================ */
+.category-container {
+    background: #f2f5f5;
+    display: flex;
+    margin-top: 20px;
+}
 h2 {
     font-size: 24px;
     line-height: 20px;
@@ -77,6 +94,7 @@ h2 {
 .meals {
     display: flex;
     flex-wrap: wrap;
+    width: 820px;
 }
 
 .meal {
@@ -127,10 +145,162 @@ h3 {
     object-fit: cover;
     object-position: center;
 }
+
+/* ==============
+      CART
+================ */
+.cart {
+    width: 350px;
+    background: white;
+    margin-left: 30px;
+    margin-top: 10px;
+    height: max-content;
+}
+.cart button {
+    display: block;
+    margin: 10px;
+    border-radius: 5px;
+    padding: 15px;
+    background: var(--primary);
+    color: #fff;
+    border: none;
+    font-weight: bold;
+    font-size: 16px;
+    width: 330px;
+}
 /* ==============
       FOOTER
 ================ */
 .footer span {
     font-weight: bold;
     color: var(--dark);
+}
+
+/* ==============
+   MEDIA QUERIES
+================ */
+@media (max-width: 1240px) {
+    .topbar div {
+        width: 1025px;
+    }
+
+    .header-title div:first-child {
+        width: 700px;
+        margin-right: 20px;
+    }
+
+    .category-container {
+        background: #f2f5f5;
+        display: flex;
+        margin-top: 20px;
+    }
+    h2 {
+        font-size: 24px;
+        line-height: 20px;
+        font-weight: bold;
+        margin-bottom: 25px;
+    }
+    .meals {
+        display: flex;
+        flex-wrap: wrap;
+        width: 700px;
+    }
+
+    .meal {
+        width: 340px;
+        height: 290px;
+        flex-direction: column;
+    }
+    .meal:hover {
+        cursor: pointer;
+        box-shadow: 5px 5px 18px 5px #e4e7e7;
+    }
+    .meal:not(:nth-child(2n)) {
+        margin-right: 20px;
+    }
+    h3 {
+        font-size: 18px;
+        width: 250px;
+        margin-bottom: 10px;
+    }
+    .description {
+        margin-right: 0px;
+        margin-bottom: 15px;
+    }
+
+    .meal img {
+        height: 130px;
+        width: 250px;
+        margin-top: 10px;
+    }
+}
+
+@media (max-width: 1100px) {
+    /* ==============
+      HEADER
+================ */
+    .App {
+        width: 100vw;
+    }
+    .logo {
+        margin-left: 10px;
+    }
+
+    .header-title {
+        width: 100vw;
+        height: max-content;
+        flex-direction: column;
+        padding: 0 10px;
+    }
+
+    .header-title p {
+        width: 90vw;
+        padding: 0 10px;
+        text-align: justify;
+    }
+    .header-title img {
+        width: 85vw;
+        margin: 10px auto;
+    }
+    h1 {
+        font-size: 1.4rem;
+        margin: 20px auto;
+    }
+    h2 {
+        margin: 10px auto;
+    }
+    .category-container {
+        padding-left: 0px;
+        width: 100vw;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+    .cart {
+        padding: 0;
+        margin: 0px auto 60px auto;
+    }
+    .cart button {
+        width: 80vw;
+        margin: auto;
+    }
+    .meal:not(:nth-child(2n)) {
+        margin-right: 0px;
+    }
+    .meals {
+        max-width: 90vw;
+        margin: 10px auto;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+    .meal {
+        max-width: 80vw;
+        margin: 10px 0;
+        justify-content: center;
+        align-items: center;
+    }
+    .category-container h2 {
+        text-align: center;
+    }
 }

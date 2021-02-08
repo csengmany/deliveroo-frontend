@@ -3,8 +3,11 @@ const Header = ({ title, description, image }) => {
     return (
         <div className="header">
             <div className="topbar">
-                <img className="logo" src={logo} alt="logo deliveroo" />
+                <div>
+                    <img className="logo" src={logo} alt="logo deliveroo" />
+                </div>
             </div>
+
             <div className="header-title">
                 <div>
                     <h1>{title}</h1>

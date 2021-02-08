@@ -12,6 +12,7 @@ import Category from "./components/Category";
 import { library } from "@fortawesome/fontawesome-svg-core";
 import { faStar } from "@fortawesome/free-solid-svg-icons";
 import Footer from "./components/Footer";
+import Cart from "./components/Cart";
 library.add(faStar);
 
 function App() {
@@ -46,11 +47,15 @@ function App() {
                 image={data.restaurant.picture}
                 alt={data.restaurant.picture}
             />
-            <div className="container">
-                {data.categories.map((category, index) => {
-                    return <Category key={index} category={category} />;
-                })}
+            <div className="category-container">
+                <div>
+                    {data.categories.map((category, index) => {
+                        return <Category key={index} category={category} />;
+                    })}
+                </div>
+                <Cart />
             </div>
+
             <Footer />
         </div>
     );
