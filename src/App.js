@@ -1,25 +1,59 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+
+import axios from "axios";
+
+import { useState, useEffect } from "react";
+
+//Import components
+import Header from "./components/Header";
+import Category from "./components/Category";
+
+//Import FontAwesome
+import { library } from "@fortawesome/fontawesome-svg-core";
+import { faStar } from "@fortawesome/free-solid-svg-icons";
+import Footer from "./components/Footer";
+library.add(faStar);
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    const [data, setData] = useState([]);
+    //avoid loading errors
+    const [isLoading, setIsLoading] = useState(true);
+
+    //useEffect to update data une seule fois:  au chargement du composant
+    useEffect(() => {
+        //axios requet
+        const fetchDta = async () => {
+            try {
+                const response = await axios.get(
+                    "https://my-deliveroo-backend-app.herokuapp.com/"
+                );
+                console.log(response.data);
+                setData(response.data);
+                setIsLoading(false);
+            } catch (error) {
+                console.log(error.message);
+            }
+        };
+        fetchDta();
+    }, []);
+    return isLoading ? (
+        <span>En cours de chargement...</span>
+    ) : (
+        <div className="App">
+            <Header
+                title={data.restaurant.name}
+                description={data.restaurant.description}
+                image={data.restaurant.picture}
+                alt={data.restaurant.picture}
+            />
+            <div className="container">
+                {data.categories.map((category, index) => {
+                    return <Category key={index} category={category} />;
+                })}
+            </div>
+            <Footer />
+        </div>
+    );
 }
 
 export default App;

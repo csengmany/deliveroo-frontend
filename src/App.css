@@ -1,38 +1,136 @@
+/* ==============
+   GLOBAL RULES
+================ */
+:root {
+    --primary: #00cdbd;
+    --orange: #ff8001;
+    --bcg: #f2f5f5;
+    --dark: #2e3333;
+    --medium: #808484;
+    --light: #a8abab;
+    --border: #e9ebeb;
+}
 .App {
-  text-align: center;
+    margin: 0 auto;
+    color: var(--dark);
+}
+p,
+span {
+    color: var(--medium);
+}
+.container {
+    padding: 25px 120px;
+    margin-top: 0;
+    background: #f2f5f5;
+}
+/* ==============
+      HEADER
+================ */
+
+.topbar {
+    height: 60px;
+    border-bottom: 1px solid var(--border);
+    display: flex;
+    align-items: center;
+}
+.logo {
+    height: 70%;
+    margin-left: 120px;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.header-title {
+    display: flex;
+    margin: 0 120px;
+    height: 257px;
+}
+.header-title div:first-child {
+    width: 820px;
+    margin-right: 30px;
+}
+.header-title img {
+    width: 350px;
+    height: 196px;
+    border-radius: 5px;
+    object-fit: cover;
+    object-position: center;
+    margin-top: 30px;
+}
+h1 {
+    font-size: 32px;
+    font-weight: bold;
+    margin-top: 45px;
+    margin-bottom: 35px;
+}
+.header-title p {
+    font-size: 19px;
+    line-height: 28px;
+}
+/* ==============
+     CATEGORY
+================ */
+h2 {
+    font-size: 24px;
+    line-height: 20px;
+    font-weight: bold;
+    margin-bottom: 25px;
+}
+.meals {
+    display: flex;
+    flex-wrap: wrap;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.meal {
+    width: 400px;
+    height: 160px;
+    display: flex;
+    background: white;
+    border-radius: 5px;
+    padding: 20px 10px;
+    margin-bottom: 20px;
+}
+.meal:hover {
+    cursor: pointer;
+    box-shadow: 5px 5px 18px 5px #e4e7e7;
+}
+.meal:not(:nth-child(2n)) {
+    margin-right: 20px;
+}
+h3 {
+    font-size: 18px;
+    width: 225px;
+    margin-bottom: 10px;
+}
+.description {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    font-size: 14px;
+    line-height: 20px;
+    height: 40px;
+    width: 225px;
+    margin-right: 20px;
+    margin-bottom: 15px;
+}
+.star {
+    color: var(--orange);
+    margin-left: 20px;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+.star > span {
+    color: var(--orange);
+    font-size: 12px;
+    font-weight: bold;
 }
-
-.App-link {
-  color: #61dafb;
+.meal img {
+    height: 130px;
+    width: 130px;
+    border-radius: 5px;
+    object-fit: cover;
+    object-position: center;
 }
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+/* ==============
+      FOOTER
+================ */
+.footer span {
+    font-weight: bold;
+    color: var(--dark);
 }
