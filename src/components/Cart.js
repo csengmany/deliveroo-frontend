@@ -1,6 +1,5 @@
-import { useState } from "react";
 import add from "../assets/images/add.svg";
-import soustract from "../assets/images/soustract.svg";
+import soustract from "../assets/images/add.svg";
 
 const Cart = ({ cart, setCart, quantity, setQuantity, amount, setAmount }) => {
     const addQuantity = (index) => {
