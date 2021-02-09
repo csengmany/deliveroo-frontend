@@ -1,5 +1,5 @@
 import logo from "../assets/images/logo.svg";
-const Header = ({ title, description, image }) => {
+const Header = ({ data }) => {
     return (
         <div className="header">
             <div className="topbar">
@@ -10,10 +10,10 @@ const Header = ({ title, description, image }) => {
 
             <div className="header-title">
                 <div>
-                    <h1>{title}</h1>
-                    <p>{description}</p>
+                    <h1>{data.name}</h1>
+                    <p>{data.description}</p>
                 </div>
-                <img src={image} alt={image.split("/").pop()} />
+                <img src={data.picture} alt={data.picture.split("/").pop()} />
             </div>
         </div>
     );

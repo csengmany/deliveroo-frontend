@@ -5,7 +5,12 @@ const Meal = ({ meal }) => {
         <div className={`meal shadow`} onClick={() => {}}>
             <div>
                 <h3>{meal.title}</h3>
-                <p className="description">{meal.description}</p>
+                <p className="description">
+                    {meal.description
+                        ? meal.description.length > 50 &&
+                          meal.description.slice(0, 50) + "..."
+                        : ""}
+                </p>
                 <span>{`${meal.price.replace(".", ",")} €`}</span>
 
                 {/* if there the meal is popular display a star */}

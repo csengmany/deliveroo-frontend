@@ -1,18 +1,18 @@
-import "./App.css";
+import "./assets/styles/App.css";
 
 import axios from "axios";
 
 import { useState, useEffect } from "react";
 
-//Import components
-import Header from "./components/Header";
-import Category from "./components/Category";
-
 //Import FontAwesome
 import { library } from "@fortawesome/fontawesome-svg-core";
 import { faStar } from "@fortawesome/free-solid-svg-icons";
+//Import components
+import Header from "./components/Header";
 import Footer from "./components/Footer";
-import Cart from "./components/Cart";
+import CategoriesContainer from "./components/CategoriesContainer";
+
+//add icons to use in project
 library.add(faStar);
 
 function App() {
@@ -41,21 +41,8 @@ function App() {
         <span>En cours de chargement...</span>
     ) : (
         <div className="App">
-            <Header
-                title={data.restaurant.name}
-                description={data.restaurant.description}
-                image={data.restaurant.picture}
-                alt={data.restaurant.picture}
-            />
-            <div className="category-container">
-                <div>
-                    {data.categories.map((category, index) => {
-                        return <Category key={index} category={category} />;
-                    })}
-                </div>
-                <Cart />
-            </div>
-
+            <Header data={data.restaurant} />
+            <CategoriesContainer categories={data.categories} />
             <Footer />
         </div>
     );
