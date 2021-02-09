@@ -1,5 +1,4 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-
 const Meal = ({ meal }) => {
     return (
         <div className={`meal shadow`} onClick={() => {}}>

@@ -9,6 +9,7 @@ const CategoriesContainer = ({ categories }) => {
                     return <Category key={index} category={category} />;
                 })}
             </div>
+
             <Cart />
         </div>
     );

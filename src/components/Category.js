@@ -1,5 +1,4 @@
 import Meal from "./Meal";
-
 const Category = ({ category }) => {
     return (
         <div className="catgegory">
@@ -7,8 +6,8 @@ const Category = ({ category }) => {
             {category.meals.length > 0 && <h2>{category.name}</h2>}
             <div className="meals">
                 {/* map on category.meals to display every "meal" */}
-                {category.meals.map((meal) => {
-                    return <Meal meal={meal} key={meal.id} />;
+                {category.meals.map((meal, index) => {
+                    return <Meal meal={meal} key={meal.id} index={index} />;
                 })}
             </div>
         </div>
