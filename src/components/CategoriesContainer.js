@@ -30,14 +30,16 @@ const CategoriesContainer = ({
                 })}
             </div>
 
-            <Cart
-                cart={cart}
-                setCart={setCart}
-                quantity={quantity}
-                setQuantity={setQuantity}
-                amount={amount}
-                setAmount={setAmount}
-            />
+            <div className="cart-container">
+                <Cart
+                    cart={cart}
+                    setCart={setCart}
+                    quantity={quantity}
+                    setQuantity={setQuantity}
+                    amount={amount}
+                    setAmount={setAmount}
+                />
+            </div>
         </div>
     );
 };

@@ -152,13 +152,13 @@ h3 {
 ================ */
 .cart {
     width: 350px;
+    height: max-content;
     background: white;
     margin-left: 30px;
     margin-top: 10px;
     padding: 10px;
     position: sticky;
     top: 10px;
-    height: 100%;
 }
 .cart img {
     height: 20px;
@@ -179,12 +179,32 @@ h3 {
 .cart span {
     color: var(--dark);
 }
+.cart :nth-child(2) {
+    max-height: 65vh;
+    overflow: scroll;
+}
+.cart-meals {
+    margin-bottom: 30px;
+    display: flex;
+}
 .cart-detail {
-    padding-top: 20px;
-    padding-bottom: 20px;
     border-bottom: solid 1px #d1d7d7;
     border-top: solid 1px #d1d7d7;
-    margin-bottom: 20px;
+    font-size: 16px;
+}
+.cart-detail div {
+    display: flex;
+    justify-content: space-between;
+}
+.cart-detail div:first-child {
+    margin-top: 20px;
+}
+.total {
+    margin: 20px 0;
+    font-size: 19px;
+    font-weight: bold;
+    display: flex;
+    justify-content: space-between;
 }
 .cart-detail div > span {
     margin-bottom: 20px;
@@ -283,6 +303,7 @@ h3 {
         width: 85vw;
         margin: 10px auto;
     }
+
     h1 {
         font-size: 1.4rem;
         margin: 20px auto;
@@ -297,13 +318,20 @@ h3 {
         justify-content: center;
         align-items: center;
     }
+
+    .cart-container {
+        width: 100vw;
+    }
     .cart {
-        padding: 0;
-        margin: 0px auto 60px auto;
+        padding: 10px;
+        margin: 10px auto;
+        position: sticky;
+        top: 0;
+        left: 0px;
+        height: max-content;
     }
     .cart button {
-        width: 80vw;
-        margin: auto;
+        margin: 0 auto 20px 0;
     }
     .meal:not(:nth-child(2n)) {
         margin-right: 0px;

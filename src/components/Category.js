@@ -18,6 +18,7 @@ const Category = ({
                 {category.meals.map((meal, index) => {
                     return (
                         <Meal
+                            className="item"
                             meal={meal}
                             key={meal.id}
                             index={index}
