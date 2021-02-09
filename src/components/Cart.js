@@ -18,7 +18,8 @@ const Cart = ({ cart, setCart, quantity, setQuantity, amount, setAmount }) => {
         <div className="cart">
             <button
                 style={{
-                    background: cart.length > 0 ? "#00cdbd" : "#bac3c3",
+                    background:
+                        cart.length > 0 && amount > 0 ? "#00cdbd" : "#bac3c3",
                     color: cart.length > 0 ? "white" : "#8b9a9b",
                 }}
             >
@@ -27,58 +28,60 @@ const Cart = ({ cart, setCart, quantity, setQuantity, amount, setAmount }) => {
             {cart.length <= 0 && <span> Votre panier est vide</span>}
             {cart.map((meal, index) => {
                 return (
-                    <div
-                        key={index}
-                        style={{
-                            marginBottom: 30,
-                            display: "flex",
-                        }}
-                    >
-                        <img
-                            src={soustract}
-                            alt="button reduce"
-                            onClick={() => {
-                                if (quantity[index] > 0) {
-                                    reduceQuantity(index);
-                                    setAmount(amount - Number(meal.price));
-                                    console.log("meal price", meal.price);
-                                }
-                            }}
-                        />
-                        <span style={{ color: "#808484" }}>
-                            {quantity[index]}
-                        </span>
-
-                        <img
-                            src={add}
-                            alt="button add"
-                            onClick={() => {
-                                addQuantity(index);
-                                setAmount(amount + Number(meal.price));
-                            }}
-                        />
+                    quantity[index] > 0 && (
                         <div
+                            key={index}
                             style={{
-                                width: "100%",
-                                marginLeft: 10,
+                                marginBottom: 30,
                                 display: "flex",
-                                justifyContent: "space-between",
                             }}
                         >
-                            <span style={{ width: 165 }}>{meal.title}</span>
-                            <span
+                            <img
+                                src={soustract}
+                                alt="button reduce"
+                                onClick={() => {
+                                    if (quantity[index] > 0) {
+                                        reduceQuantity(index);
+                                        setAmount(amount - Number(meal.price));
+                                        console.log("meal price", meal.price);
+                                    }
+                                }}
+                            />
+                            <span style={{ color: "#808484" }}>
+                                {quantity[index]}
+                            </span>
+
+                            <img
+                                src={add}
+                                alt="button add"
+                                onClick={() => {
+                                    addQuantity(index);
+                                    setAmount(amount + Number(meal.price));
+                                }}
+                            />
+                            <div
                                 style={{
-                                    width: 60,
+                                    width: "100%",
+                                    marginLeft: 10,
+                                    display: "flex",
+                                    justifyContent: "space-between",
                                 }}
                             >
-                                {meal.price.replace(".", ",")} €
-                            </span>
+                                <span style={{ width: 165 }}>{meal.title}</span>
+                                <span
+                                    style={{
+                                        width: 60,
+                                    }}
+                                >
+                                    {meal.price.replace(".", ",")} €
+                                </span>
+                            </div>
                         </div>
-                    </div>
+                    )
                 );
             })}
 
-            {cart.length > 0 && (
+            {cart.length > 0 && amount > 0 && (
                 <>
                     <div className="cart-detail">
                         <div>
