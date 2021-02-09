@@ -155,10 +155,17 @@ h3 {
     background: white;
     margin-left: 30px;
     margin-top: 10px;
+    padding: 10px;
+    position: sticky;
+    top: 10px;
+    height: 100%;
+}
+.cart img {
+    height: 20px;
 }
 .cart button {
     display: block;
-    margin: 10px;
+    width: 100%;
     border-radius: 5px;
     padding: 15px;
     background: var(--primary);
@@ -167,23 +174,20 @@ h3 {
     font-weight: bold;
     font-size: 16px;
     width: 330px;
+    margin-bottom: 30px;
 }
-
-.cart > div > div:first-child {
-    width: 20px;
-    margin-right: 10px;
-    font-size: 30px;
-    background-color: #cdbd;
+.cart span {
+    color: var(--dark);
 }
-
-.cart > div > div:last-child {
-    height: 30px;
-    width: 300;
-    background-color: rgba(125, 175, 74, 0.867);
-    display: flex;
+.cart-detail {
+    padding-top: 20px;
+    padding-bottom: 20px;
+    border-bottom: solid 1px #d1d7d7;
+    border-top: solid 1px #d1d7d7;
+    margin-bottom: 20px;
 }
-.cart > div {
-    display: flex;
+.cart-detail div > span {
+    margin-bottom: 20px;
 }
 /* ==============
       FOOTER
